@@ -14,6 +14,13 @@
         </span>
       </Input>
     </FormItem>
+    <FormItem prop="identity">
+    <select v-model="form.identity">
+      <option v-for="option in da.options" v-bind:key="option.text" v-bind:value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+    </FormItem>
     <FormItem>
       <Button @click="handleSubmit" type="primary" long>登录</Button>
     </FormItem>
@@ -38,13 +45,30 @@ export default {
           { required: true, message: '密码不能为空', trigger: 'blur' }
         ]
       }
+    },
+    identityRules: {
+      type: Array,
+      default: () => {
+        return [
+          { required: true, message: '身份不能为空', trigger: 'blur' }
+        ]
+      }
     }
   },
   data () {
     return {
+      da: {
+        selected: '学生',
+        options: [
+          { text: '学生', value: 'student' },
+          { text: '教师', value: 'teacher' },
+          { text: '教务', value: 'management' }
+        ]
+      },
       form: {
         userName: 'super_admin',
-        password: ''
+        password: '',
+        identity: '学生'
       }
     }
   },
@@ -52,7 +76,8 @@ export default {
     rules () {
       return {
         userName: this.userNameRules,
-        password: this.passwordRules
+        password: this.passwordRules,
+        identity: this.identityRules
       }
     }
   },
@@ -62,7 +87,8 @@ export default {
         if (valid) {
           this.$emit('on-success-valid', {
             userName: this.form.userName,
-            password: this.form.password
+            password: this.form.password,
+            identity: this.form.identity
           })
         }
       })
