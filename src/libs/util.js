@@ -15,6 +15,16 @@ export const getToken = () => {
   else return false
 }
 
+export const setCookie = (key, value) => {
+  Cookies.set(key, value, {expires: config.cookieExpires || 1})
+}
+
+export const getCookie = () => {
+  const key = Cookies.get('session')
+  if (key) return key
+  else return false
+}
+
 export const hasChild = (item) => {
   return item.children && item.children.length !== 0
 }
