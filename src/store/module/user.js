@@ -33,12 +33,13 @@ export default {
   },
   actions: {
     // 登录
-    handleLogin ({ commit }, {userName, password}) {
+    handleLogin ({ commit }, {userName, password, identity}) {
       userName = userName.trim()
       return new Promise((resolve, reject) => {
         login({
           userName,
-          password
+          password,
+          identity
         }).then(res => {
           const data = res.data
           commit('setToken', data.token)

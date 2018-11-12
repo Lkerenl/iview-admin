@@ -2,7 +2,7 @@ import axios from '@/libs/api.request'
 
 export const login = ({ userName, password, identity }) => {
   const data = {
-    username,
+    userName,
     password,
     identity
   }
@@ -16,7 +16,7 @@ export const login = ({ userName, password, identity }) => {
 
 export const getUserInfo = (token) => {
   return axios.request({
-    url: 'get_info',
+    url: '/api/get_info',
     params: {
       token
     },
@@ -26,7 +26,7 @@ export const getUserInfo = (token) => {
 
 export const logout = (token) => {
   return axios.request({
-    url: 'logout',
+    url: '/api/logout',
     method: 'post'
   })
 }

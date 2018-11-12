@@ -12,9 +12,12 @@ import installPlugin from '@/plugin'
 import 'iview/dist/styles/iview.css'
 import './index.less'
 import '@/assets/icons/iconfont.css'
+import Print from 'vue-print-nb'
 // 实际打包时应该不引入mock
 /* eslint-disable */
 // if (process.env.NODE_ENV !== 'production') require('@/mock')
+
+Vue.use(Print)
 
 Vue.use(iView, {
   i18n: (key, value) => i18n.t(key, value)

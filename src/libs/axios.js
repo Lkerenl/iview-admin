@@ -20,6 +20,7 @@ class HttpRequest {
   getInsideConfig () {
     const config = {
       baseURL: this.baseUrl,
+      withCredentials: true,
       headers: {
         //
       }

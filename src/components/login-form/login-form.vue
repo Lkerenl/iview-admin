@@ -19,7 +19,7 @@
       <option v-for="option in da.options" v-bind:key="option.text" v-bind:value="option.value">
         {{ option.text }}
       </option>
-    </select>
+    </select> selected:{{ form.identity }}
     </FormItem>
     <FormItem>
       <Button @click="handleSubmit" type="primary" long>登录</Button>
@@ -66,9 +66,9 @@ export default {
         ]
       },
       form: {
-        userName: 'super_admin',
-        password: '',
-        identity: '学生'
+        userName: 'jwk',
+        password: '123456',
+        identity: 'management'
       }
     }
   },

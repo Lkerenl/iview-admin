@@ -12,7 +12,9 @@
 
 <script>
 import './user.less'
+// import logout_modal from '_c/main/components/header-bar/logout_modal'
 import { mapActions } from 'vuex'
+// import '_c/main/components/header-bar/header-bar'
 export default {
   name: 'User',
   props: {
@@ -21,21 +23,15 @@ export default {
       default: ''
     }
   },
-  methods: {
-    ...mapActions([
-      'handleLogOut'
-    ]),
-    handleClick (name) {
-      switch (name) {
-        case 'logout':
-          this.handleLogOut().then(() => {
-            this.$router.push({
-              name: 'login'
-            })
-          })
-          break
-      }
+  ...mapActions([
+    'handleLogOut'
+  ]),
+  handleClick (name) {
+    switch (name) {
+      case 'logout':
+        break
     }
   }
 }
+
 </script>
