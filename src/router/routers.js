@@ -46,21 +46,21 @@ export default [
     ]
   },
   {
-    path: '',
-    name: 'doc',
+    path: '/user_info',
+    name: 'user_info',
     meta: {
       access: ['student', 'teacher']
     },
     component: Main,
     children: [
       {
-        path: 'join_page',
+        path: 'user_info_page',
         name: '个人信息',
         meta: {
           icon: 'ios-book',
           title: '个人信息'
         },
-        component: () => import('@/view/join-page.vue')
+        component: () => import('@/view/user_info/user_info-page.vue')
       }
     ]
   },
@@ -79,64 +79,65 @@ export default [
           icon: '_qq',
           title: '已选课程'
         },
-        component: () => import('@/view/join-page.vue')
+        component: () => import('@/view/components/tables/tables.vue')
       }
     ]
   },
   {
-    path: '/components',
-    name: 'components',
+    path: '/insert',
+    name: 'insert',
     meta: {
       access: ['teacher']
     },
     component: Main,
     children: [
       {
-        path: 'count_to_page',
+        path: 'insert_page',
         name: '成绩录入',
         meta: {
           icon: 'md-trending-up',
           title: '成绩录入'
         },
-        component: () => import('@/view/components/count-to/count-to.vue')
+        component: () => import('@/view/insert/insert_page.vue')
       }
     ]
   },
   {
-    path: '/update',
-    name: 'update',
+    path: '/analyse',
+    name: 'analyse',
     component: Main,
     meta: {
       access: ['teacher', 'management']
     },
     children: [
       {
-        path: 'update_table_page',
+        path: 'analyse_page',
         name: '成绩分析',
         meta: {
           icon: 'ios-document',
           title: '成绩分析'
         },
-        component: () => import('@/view/update/update-table.vue')
+        component: () => import('@/view/analyse/analyse_page.vue')
       }
     ]
   },
   {
-    path: '/excel',
-    name: 'excel',
+    path: '/tea_stu_score',
+    name: 'tea_stu_score',
     component: Main,
     meta: {
-      access: ['teacher']
+      access: ['teacher', 'management']
     },
     children: [
       {
-        path: 'upload-excel',
-        name: '课程安排',
+        path: 'tea_stu_score',
+        name: '学生成绩',
         meta: {
           icon: 'md-add',
-          title: '课程安排'
+          title: '学生成绩'
         },
-        component: () => import('@/view/excel/upload-excel.vue')
+        component: () => import('@/view/tea_stu_score/tea_stu_score_page.vue')
+
       }
     ]
   },
@@ -192,21 +193,21 @@ export default [
     ]
   },
   {
-    path: '/change-password',
-    name: '修改密码',
+    path: '/update-code',
+    name: 'update-code',
     component: Main,
     meta: {
       access: ['student', 'teacher', 'management']
     },
     children: [
       {
-        path: 'change-password',
+        path: 'update-code_page',
         name: '修改密码',
         meta: {
           icon: 'ios-bug',
           title: '修改密码'
         },
-        component: () => import('@/view/change-password/test.vue')
+        component: () => import('@/view/update-code/update-code_page.vue')
       }
     ]
   },

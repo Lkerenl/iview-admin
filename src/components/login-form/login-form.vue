@@ -19,7 +19,11 @@
       <option v-for="option in da.options" v-bind:key="option.text" v-bind:value="option.value">
         {{ option.text }}
       </option>
+<<<<<<< HEAD
     </select> selected:{{ form.identity }}
+=======
+    </select>selected {{ form.identity }}
+>>>>>>> 8ca1cda64ef419cf769bc53b0e8bc907231bfb39
     </FormItem>
     <FormItem>
       <Button @click="handleSubmit" type="primary" long>登录</Button>
@@ -66,9 +70,15 @@ export default {
         ]
       },
       form: {
+<<<<<<< HEAD
         userName: 'jwk',
         password: '123456',
         identity: 'management'
+=======
+        userName: '000000',
+        password: '123456',
+        identity: 'teacher'
+>>>>>>> 8ca1cda64ef419cf769bc53b0e8bc907231bfb39
       }
     }
   },

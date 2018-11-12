@@ -1,6 +1,6 @@
 import axios from '@/libs/api.request'
 
-export const getTableData = () => {
+export const getTableData = (key) => {
   return axios.request({
     url: '/api/get_table_data',
     method: 'get'
@@ -78,6 +78,60 @@ export const saveErrorLogger = info => {
   return axios.request({
     url: 'save_error_logger',
     data: info,
+    method: 'post'
+  })
+}
+
+export const getInsertData = () => {
+  return axios.request({
+    url: '/api/get_insert_data',
+    method: 'get'
+  })
+}
+
+export const commitTableData = (tableData, key) => {
+  const data = {
+    tableData,
+    key
+  }
+  return axios.request({
+    url: '/api/commitTableData',
+    data,
+    method: 'post'
+  })
+}
+
+export const getScoreCnoData = () => {
+  return axios.request({
+    url: '/api/getScoreCnoData',
+    method: 'get'
+  })
+}
+
+export const getScoreData = (key) => {
+  return axios.request({
+    url: '/api/getScoreData',
+    data: key,
+    method: 'post'
+  })
+}
+
+export const updatePassword = (oldPassword, newPassword) => {
+  const data = {
+    oldPassword,
+    newPassword
+  }
+  return axios.request({
+    url: '/api/updatePassword',
+    data,
+    method: 'post'
+  })
+}
+
+export const getAllScore = (key) => {
+  return axios.request({
+    url: '/api/getAllScore',
+    data: key,
     method: 'post'
   })
 }

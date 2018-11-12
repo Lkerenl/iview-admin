@@ -3,15 +3,22 @@ const USER_MAP = {
   super_admin: {
     name: 'super_admin',
     user_id: '1',
-    access: ['super_admin', 'admin'],
+    access: ['teacher'],
     token: 'super_admin',
     avator: 'https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png'
   },
   admin: {
     name: 'admin',
     user_id: '2',
-    access: ['admin'],
+    access: ['student'],
     token: 'admin',
+    avator: 'https://avatars0.githubusercontent.com/u/20942571?s=460&v=4'
+  },
+  management: {
+    name: 'management',
+    user_id: '3',
+    access: ['management'],
+    token: 'management',
     avator: 'https://avatars0.githubusercontent.com/u/20942571?s=460&v=4'
   }
 }

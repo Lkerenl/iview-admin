@@ -12,10 +12,8 @@
     <Layout>
       <Header class="header-con">
         <header-bar :collapsed="collapsed" @on-coll-change="handleCollapsedChange">
-          <user :user-avator="userAvator"/>
-          <language v-if="$config.useI18n" @on-lang-change="setLocal" style="margin-right: 10px;" :lang="local"/>
-          <error-store v-if="$config.plugin['error-store'] && $config.plugin['error-store'].showInHeader" :has-read="hasReadErrorPage" :count="errorCount"></error-store>
-          <fullscreen v-model="isFullscreen" style="margin-right: 10px;"/>
+<h3>{{userName}}</h3>
+<h3>{{userNo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
         </header-bar>
       </Header>
       <Content class="main-content-con">
@@ -37,32 +35,24 @@
 import SideMenu from './components/side-menu'
 import HeaderBar from './components/header-bar'
 import TagsNav from './components/tags-nav'
-import User from './components/user'
-import Fullscreen from './components/fullscreen'
-import Language from './components/language'
-import ErrorStore from './components/error-store'
 import { mapMutations, mapActions, mapGetters } from 'vuex'
 import { getNewTagList, getNextRoute, routeEqual } from '@/libs/util'
 import minLogo from '@/assets/images/logo-min.jpg'
 import maxLogo from '@/assets/images/logo.jpg'
 import './main.less'
+
 export default {
   name: 'Main',
   components: {
     SideMenu,
     HeaderBar,
-    Language,
-    TagsNav,
-    Fullscreen,
-    ErrorStore,
-    User
+    TagsNav
   },
   data () {
     return {
       collapsed: false,
       minLogo,
-      maxLogo,
-      isFullscreen: false
+      maxLogo
     }
   },
   computed: {
@@ -75,8 +65,11 @@ export default {
     tagRouter () {
       return this.$store.state.app.tagRouter
     },
-    userAvator () {
-      return this.$store.state.user.avatorImgPath
+    userNo () {
+      return this.$store.state.user.userId
+    },
+    userName () {
+      return this.$store.state.user.userName
     },
     cacheList () {
       return this.tagNavList.length ? this.tagNavList.filter(item => !(item.meta && item.meta.notCache)).map(item => item.name) : []
