@@ -2,7 +2,7 @@
   <div>
     <Card class="search-con">
       <Select v-model="Key" class="search-col">
-        <Option v-for="item in searchKey" v-bind:value="item.cno">{{ item.cno }}</Option>
+      <Option v-for="item in searchKey" v-bind:value="item.cno">{{ item.cno }}</Option>
       </Select>
       <Button @click="handleSearch" class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" @on-delete="handleDelete"/>
@@ -54,7 +54,7 @@ export default {
       })
     },
     async ok () {
-      if (this.tableData != '') {
+      if (this.tableData !== '') {
         this.handleCommit().then(res => {
           this.$Message.info('提交成功')
           Close()

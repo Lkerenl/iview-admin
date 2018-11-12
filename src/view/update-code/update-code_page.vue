@@ -20,22 +20,19 @@ export default {
   },
   data () {
     return {
-      old_password: "",
-      new_password: "",
-      repeat_password: ""
+      old_password: '',
+      new_password: '',
+      repeat_password: ''
     }
   },
   methods: {
     handleSearch () {
-      if(this.new_password === this.repeat_password)
-      {
+      if (this.new_password === this.repeat_password) {
         getScoreData(this.old_password, this.new_password)
+      } else {
+        this.$Message.info('密码输入不一致')
       }
-      else
-      {
-        this.$Message.info("密码输入不一致")
-      }
-    },
+    }
   }
 }
 </script>

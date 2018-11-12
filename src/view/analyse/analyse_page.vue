@@ -39,7 +39,7 @@ export default {
       getScoreData(this.Key).then(res => {
         this.tableData.push(res.data.message)
       })
-    },
+    }
   },
   mounted () {
     getScoreCnoData().then(res => {

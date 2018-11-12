@@ -32,13 +32,13 @@ export default {
     handleSearch () {
       getAllScore(this.cno_key).then(res => {
         res.data.message.forEach(v => {
-          if(v["score"] === null){
-            v["score"] = 0
+          if (v['score'] === null) {
+            v['score'] = 0
           }
         })
         this.tableData = res.data.message
       })
-    },
+    }
   }
 }
 </script>
