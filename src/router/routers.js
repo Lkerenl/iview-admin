@@ -45,11 +45,87 @@ export default [
       }
     ]
   },
+    {
+    path: '/stu_info',
+    name: 'stu_info',
+    meta: {
+      access: ['student']
+    },
+    component: Main,
+    children: [
+      {
+        path: 'stu_info_page',
+        name: '学生信息',
+        meta: {
+          icon: 'ios-book',
+          title: '学生信息'
+        },
+        component: () => import('@/view/stu_info/user_info-page.vue')
+      }
+    ]
+  },
+  {
+    path: '/user_course',
+    name: 'user_course',
+    meta: {
+      access: ['student']
+    },
+    component: Main,
+    children: [
+      {
+        path: 'course',
+        name: '已选课程',
+        meta: {
+          icon: '_qq',
+          title: '已选课程'
+        },
+        component: () => import('@/view/user_course/course.vue')
+      }
+    ]
+  },
+  {
+    path: '/user_score',
+    name: 'tools_methods',
+    component: Main,
+    meta: {
+      access: ['student']
+    },
+    children: [
+      {
+        path: 'score_page',
+        name: '成绩查询',
+        meta: {
+          icon: 'ios-hammer',
+          title: '成绩查询'
+        },
+        component: () => import('@/view/user_score/score.vue')
+      }
+    ]
+  },
+  {
+    path: '/GPA',
+    name: 'GPA',
+    component: Main,
+    meta: {
+      access: ['student']
+    },
+    children: [
+      {
+        path: 'GPA_page',
+        name: '学分绩查询',
+        meta: {
+          icon: 'md-planet',
+          title: '学分绩查询'
+        },
+        component: () => import('@/view/GPA/GPA_page.vue')
+      }
+    ]
+  },
   {
     path: '/user_info',
     name: 'user_info',
     meta: {
-      access: ['student', 'teacher']
+      access: ['teacher']
     },
     component: Main,
     children: [
@@ -60,26 +136,7 @@ export default [
           icon: 'ios-book',
           title: '个人信息'
         },
-        component: () => import('@/view/user_info/user_info-page.vue')
-      }
-    ]
-  },
-  {
-    path: '/join',
-    name: 'join',
-    meta: {
-      access: ['student']
-    },
-    component: Main,
-    children: [
-      {
-        path: 'join_page',
-        name: '已选课程',
-        meta: {
-          icon: '_qq',
-          title: '已选课程'
-        },
-        component: () => import('@/view/components/tables/tables.vue')
+        component: () => import('@/view/user_info/user_info_page.vue')
       }
     ]
   },
