@@ -3,7 +3,8 @@ import axios from '@/libs/api.request'
 export const getTableData = (key) => {
   return axios.request({
     url: '/api/get_table_data',
-    method: 'get'
+    data: key,
+    method: 'post'
   })
 }
 
@@ -133,5 +134,57 @@ export const getAllScore = (key) => {
     url: '/api/getAllScore',
     data: key,
     method: 'post'
+  })
+}
+
+export const getCourseData = (token) => {
+  return axios.request({
+    url: '/api/get_Course',
+    params: {
+      token
+    },
+    method: 'get'
+  })
+}
+
+export const getStuScoreData = (token) => {
+  return axios.request({
+    url: '/api/get_Score',
+    params: {
+      token
+    },
+    method: 'get'
+  })
+}
+
+export const getGPAData = (token) => {
+  return axios.request({
+    url: '/api/get_GPA',
+    params: {
+      token
+    },
+    method: 'get'
+  })
+}
+
+export const getGPATime = (token) => {
+  return axios.request({
+    url: '/api/get_GPATime',
+    params: {
+      token
+    },
+    method: 'get'
+  })
+}
+
+export const getChosenGPA = (token, key1, key2) => {
+  return axios.request({
+    url: '/api/get_ChosenGPA',
+    params: {
+      token,
+      key1,
+      key2
+    },
+    method: 'get'
   })
 }
