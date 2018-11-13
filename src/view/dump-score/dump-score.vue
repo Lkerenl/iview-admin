@@ -3,15 +3,15 @@
     <Card>
       <Input v-model="st" placeholder="请输入学号" clearable style="width: 300px" />
       <Button type="primary" shape="circle" icon="ios-search" @click="handleDump" >Search</Button>
-      <h2 v-if="show">{{ this.name }}  学分绩：{{ this.gpa }}</h2>
-      <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"/>
+      <tables id="testPrint" ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"/>
       <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Csv文件</Button>
+      <Button v-print="'#testPrint'">打印</Button>
     </Card>
   </div>
 </template>
 
 <script>
-import Tables from '_c/tables'
+import Tables from './tables/tables'
 import { dumpScore } from '@/api/data'
 export default {
   name: 'dump-score',
@@ -29,10 +29,7 @@ export default {
       ],
       tableData: [
       ],
-      st: '',
-      name: '',
-      gpa: '',
-      show: false
+      st: ''
     }
   },
   methods: {
@@ -44,9 +41,10 @@ export default {
     handleDump () {
       console.log(this)
       dumpScore(this.st).then(res => {
-        this.name = res.data.name
-        this.gpa = res.data.gpa
-        this.show = true
+        this.$ref.studentName = res.data.name
+        this.$ref.studentNo = this.st
+        this.$ref.show = true
+        this.$ref.gpa = res.data.gpa
         this.tableData = res.data.score
       })
     }

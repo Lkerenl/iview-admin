@@ -2,11 +2,12 @@
   <div>
     <Card class="search-con">
       <Select v-model="Key" class="search-col">
-      <Option v-for="item in searchKey" v-bind:value="item.cno">{{ item.cno }}</Option>
+      <Option v-for="item in searchKey" v-bind:key="item.cno" v-bind:value="item.cno">{{ item.cno }}</Option>
       </Select>
       <Button @click="handleSearch" class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
-      <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" @on-delete="handleDelete"/>
+      <tables id="testPrint" ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" @on-delete="handleDelete"/>
       <Button style="margin: 10px 0;" type="primary" @click="modal = true">提交成绩</Button>
+      <Button v-print="'#testPrint'">打印</Button>
       <Modal
         v-model="modal"
         title="确认框"
