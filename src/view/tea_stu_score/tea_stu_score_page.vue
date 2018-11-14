@@ -1,7 +1,7 @@
 <template>
   <div>
     <Card class="search-con">
-      <input placeholder="cno_key" v-model="cno_key" class="search-col">
+      <input placeholder="课程号" v-model="cno_key" class="search-col">
       <Button @click="handleSearch" class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"/>
     </Card>

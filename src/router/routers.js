@@ -45,7 +45,7 @@ export default [
       }
     ]
   },
-    {
+  {
     path: '/stu_info',
     name: 'stu_info',
     meta: {

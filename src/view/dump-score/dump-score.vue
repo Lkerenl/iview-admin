@@ -3,6 +3,7 @@
     <Card>
       <Input v-model="st" placeholder="请输入学号" clearable style="width: 300px" />
       <Button type="primary" shape="circle" icon="ios-search" @click="handleDump" >Search</Button>
+      <h2 v-if="show">姓名：{{ this.studentName }} GPA: {{ this.gpa }}</h2>
       <tables id="testPrint" ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"/>
       <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Csv文件</Button>
       <Button v-print="'#testPrint'">打印</Button>
@@ -29,7 +30,10 @@ export default {
       ],
       tableData: [
       ],
-      st: ''
+      st: '',
+      show: false,
+      studentName: '',
+      gpa: ''
     }
   },
   methods: {
@@ -41,10 +45,10 @@ export default {
     handleDump () {
       console.log(this)
       dumpScore(this.st).then(res => {
-        this.$ref.studentName = res.data.name
-        this.$ref.studentNo = this.st
-        this.$ref.show = true
-        this.$ref.gpa = res.data.gpa
+        this.studentName = res.data.name
+        this.studentNo = this.st
+        this.show = true
+        this.gpa = res.data.gpa
         this.tableData = res.data.score
       })
     }

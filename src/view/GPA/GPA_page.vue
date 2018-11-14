@@ -31,18 +31,18 @@ export default {
       ],
       tableData: [],
       searchKey: [],
-      key1:'',
-      key2:''
+      key1: '',
+      key2: ''
     }
   },
   methods: {
     handleDelete (params) {
       console.log(params)
     },
-    handleSearch(){
-      getChosenGPA(getToken(),this.key1,this.key2).then(res => {
-      const data = res.data
-      this.tableData = data.message
+    handleSearch () {
+      getChosenGPA(getToken(), this.key1, this.key2).then(res => {
+        const data = res.data
+        this.tableData = data.message
       })
     },
     exportExcel () {
@@ -56,7 +56,7 @@ export default {
       const data = res.data
       this.tableData = data.message
     })
-    getGPATime(getToken()).then(res =>{
+    getGPATime(getToken()).then(res => {
       const data = res.data
       this.searchKey = data.message
     })

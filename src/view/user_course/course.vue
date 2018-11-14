@@ -20,10 +20,10 @@ export default {
     return {
       columns: [
         {title: '课程代码', key: 'cno', sortable: true},
-        {title: '课程名', key: 'cname',},
+        {title: '课程名', key: 'cname'},
         {title: '课程类型', key: 'ctype'},
         {title: '学分', key: 'ccredits'},
-        {title: '开课时间', key: 'ctime',sortable:true},
+        {title: '开课时间', key: 'ctime', sortable: true},
         {
           title: '操作',
           key: 'handle',

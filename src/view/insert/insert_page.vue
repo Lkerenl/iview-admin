@@ -5,7 +5,7 @@
       <Option v-for="item in searchKey" v-bind:key="item.cno" v-bind:value="item.cno">{{ item.cno }}</Option>
       </Select>
       <Button @click="handleSearch" class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
-      <tables id="testPrint" ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" @on-delete="handleDelete"/>
+      <tables id="testPrint" ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"/>
       <Button style="margin: 10px 0;" type="primary" @click="modal = true">提交成绩</Button>
       <Button v-print="'#testPrint'">打印</Button>
       <Modal
@@ -55,7 +55,7 @@ export default {
       })
     },
     async ok () {
-      if (this.tableData !== '') {
+      if (this.tableData != '') {
         this.handleCommit().then(res => {
           this.$Message.info('提交成功')
           Close()
